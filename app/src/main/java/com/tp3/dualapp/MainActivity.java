@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    //public static final String EXTRA_MESSAGE ="";
     private EditText msgTxt;
     private TextView reponseMsg;
 
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent i) {
         super.onActivityResult(requestCode, resultCode, i);
 
-        if (requestCode == 3) {
+        if (requestCode == 5) {
             if (resultCode == RESULT_OK) {
                 String reply = i.getStringExtra("messageRep");
                 reponseMsg.setVisibility(View.VISIBLE);
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, SecondActivity.class);
         String msg = msgTxt.getText().toString();
         i.putExtra("message", msg);
-        startActivityForResult(i, 3);
+        startActivityForResult(i, 5);
 
     }
 
@@ -67,21 +66,20 @@ public class MainActivity extends AppCompatActivity {
 //
 //    ActivityResultLauncher<Intent> myActivityResultLauncher = registerForActivityResult(
 //            new ActivityResultContracts.StartActivityForResult(),
-//            new ActivityResultCallback<ActivityResult>() {
-//                @Override
-//                public void onActivityResult(ActivityResult result) {
-//                    if (result.getResultCode() == Activity.RESULT_OK) {
-//                        // There are no request codes
-//                        Intent data = result.getData();
-//                        String reply = data.getStringExtra("messageRep");
-//                        headerMsg.setVisibility(View.VISIBLE);
-//                        reponseMsg.setVisibility(View.VISIBLE);
-//                        reponseMsg.setText(reply);
+//            result -> {
+//                if (result.getResultCode() == Activity.RESULT_OK) {
+//                    // There are no request codes
+//                    Intent data = result.getData();
+//                    String reply = data.getStringExtra("messageRep");
+//                    //headerMsg.setVisibility(View.VISIBLE);
+//                    reponseMsg.setVisibility(View.VISIBLE);
+//                    reponseMsg.setText(reponseMsg.getText().toString() + "\n* " + reply);
 //
-//                    }
+//                } else { //resultCode == RESULT_CANCELED
+//                    Toast.makeText(this, "Chaine vide", Toast.LENGTH_LONG).show();
 //                }
-//            });
-
+//            }
+//    );
 
 
 }

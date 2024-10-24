@@ -1,5 +1,6 @@
 package com.tp3.dualapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -21,13 +22,14 @@ public class SecondActivity extends AppCompatActivity {
         reponse = (EditText) findViewById(R.id.editText_second);
         txt1 = (TextView) findViewById(R.id.text_message);
 
-
         i = getIntent();
         String message = i.getStringExtra("message");
         txt1.setVisibility(View.VISIBLE);
-        txt1.setText(message);
+        txt1.setText( message);
 
     }
+
+   
 
     public void LaunchReply(View v) {
         String msgRep = reponse.getText().toString();
